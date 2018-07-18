@@ -97,22 +97,30 @@ public class FibonacciTest {
 
 	@Test
 	public void testGetCacheSizeWhenOrderIs45() {
-		assertEquals(46, fib.getCacheSize(45));
+		// invoke FibNum (caching)
+		fib.getFibNum(45);
+		assertEquals(46, fib.getCacheSize());
 	}
 
 	@Test
 	public void testGetCacheSizeWhenOrderIs46() {
-		assertEquals(47, fib.getCacheSize(46));
+		// invoke FibNum (caching)
+		fib.getFibNum(46);
+		assertEquals(47, fib.getCacheSize());
 	}
 
 	@Test
 	public void testGetCacheSizeWhenOrderIs47() {
-		assertEquals(47, fib.getCacheSize(47));
+		// invoke FibNum (caching)
+		fib.getFibNum(47);
+		assertEquals(47, fib.getCacheSize());
 	}
 
 	@Test
-	public void testGetCacheSizeWhenOrderIs9999() {
-		assertEquals(47, fib.getCacheSize(9999));
+	public void testGetCacheSizeWhenOrderIs999() {
+		// invoke FibNum (caching)
+		fib.getFibNum(999);
+		assertEquals(47, fib.getCacheSize());
 	}
 
 }

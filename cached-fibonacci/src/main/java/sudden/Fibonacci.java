@@ -17,11 +17,12 @@ public class Fibonacci {
         System.out.println(instance.getLogWhen(6));
         System.out.println(instance.getLogWhen(7));
         System.out.println(instance.getLogWhen(8));
-//        System.out.println(instance.getLogWhen(9));
-//        System.out.println(instance.getLogWhen(10));
+        System.out.println(instance.getLogWhen(9));
+        System.out.println(instance.getLogWhen(10));
         System.out.println(instance.getLogWhen(44));
         System.out.println(instance.getLogWhen(45));
         System.out.println(instance.getLogWhen(46));
+        System.out.println(instance.getLogWhen(47));
         System.out.println(instance.getLogWhen(999));
         System.out.println(instance.getLogWhen(1010));
 
@@ -36,10 +37,13 @@ public class Fibonacci {
  */
 class Fib {
 
+	// when setting valid cache values are completed, then true
+	private boolean isFullyCached;
     // Cache for save previous results
-    private List<Integer> cache;
+    private final List<Integer> cache;
 
     Fib() {
+    	this.isFullyCached = false;
         this.cache = new ArrayList<Integer>();
     }
 
@@ -56,6 +60,11 @@ class Fib {
         if (cache.size() < order) {
             // recursion for caching
             getFibNum(order - 1);
+
+            // setting valid cache values are completed, retrun
+        	if(isFullyCached) {
+        		return -1;
+        	}
             getFibNum(order);
 
         } else {
@@ -69,7 +78,7 @@ class Fib {
                 long temp = Long.sum(cache.get(order - 2), cache.get(order - 1));
                 // advanced : if Fibonacci number is out of integer range then -1
                 if (cache.get(order - 2) < 0 || cache.get(order - 1) < 0 || temp > Integer.MAX_VALUE) {
-
+                	isFullyCached = true;
                     cache.add(-1);
 
                 } else {
@@ -93,8 +102,8 @@ class Fib {
         return String.format("Fibonacci #%d = %d", order, getFibNum(order));
     }
 
-	public Object getCacheSize(int i) {
+	public Object getCacheSize() {
 		// TODO Auto-generated method stub
-		return null;
+		return cache.size();
 	}
 }
