@@ -23,6 +23,7 @@ public class Fibonacci {
         System.out.println(instance.getLogWhen(45));
         System.out.println(instance.getLogWhen(46));
         System.out.println(instance.getLogWhen(999));
+        System.out.println(instance.getLogWhen(1010));
 
     }
 }
@@ -91,4 +92,9 @@ class Fib {
     public String getLogWhen(int order) {
         return String.format("Fibonacci #%d = %d", order, getFibNum(order));
     }
+
+	public Object getCacheSize(int i) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

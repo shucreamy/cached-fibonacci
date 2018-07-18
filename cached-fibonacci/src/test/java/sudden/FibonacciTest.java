@@ -95,4 +95,24 @@ public class FibonacciTest {
 		assertEquals(-1, fib.getFibNum(999));
 	}
 
+	@Test
+	public void testGetCacheSizeWhenOrderIs45() {
+		assertEquals(46, fib.getCacheSize(45));
+	}
+
+	@Test
+	public void testGetCacheSizeWhenOrderIs46() {
+		assertEquals(47, fib.getCacheSize(46));
+	}
+
+	@Test
+	public void testGetCacheSizeWhenOrderIs47() {
+		assertEquals(47, fib.getCacheSize(47));
+	}
+
+	@Test
+	public void testGetCacheSizeWhenOrderIs9999() {
+		assertEquals(47, fib.getCacheSize(9999));
+	}
+
 }
