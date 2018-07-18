@@ -95,6 +95,7 @@ public class FibonacciTest {
 		assertEquals(-1, fib.getFibNum(999));
 	}
 
+	// limit cache test
 	@Test
 	public void testGetCacheSizeWhenOrderIs45() {
 		// invoke FibNum (caching)
@@ -102,6 +103,7 @@ public class FibonacciTest {
 		assertEquals(46, fib.getCacheSize());
 	}
 
+	// limit cache test
 	@Test
 	public void testGetCacheSizeWhenOrderIs46() {
 		// invoke FibNum (caching)
@@ -109,6 +111,7 @@ public class FibonacciTest {
 		assertEquals(47, fib.getCacheSize());
 	}
 
+	// limit cache test
 	@Test
 	public void testGetCacheSizeWhenOrderIs47() {
 		// invoke FibNum (caching)
@@ -116,6 +119,7 @@ public class FibonacciTest {
 		assertEquals(47, fib.getCacheSize());
 	}
 
+	// limit cache test
 	@Test
 	public void testGetCacheSizeWhenOrderIs999() {
 		// invoke FibNum (caching)

@@ -3,6 +3,12 @@ package sudden;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Fibonacci Number
+ *
+ * @Author : YoungHwa Lee
+ *
+ */
 public class Fibonacci {
 
     public static void main(String[] args) {
@@ -30,14 +36,21 @@ public class Fibonacci {
 }
 
 /**
- * Fibonacci with cache
+ * Fibonacci using cache
+ *
+ * <p>
+ * I remember that the return type of fib() method of sample Fib class which i saw at interview is int.
+ * So I needed to control the return value considering whether is out of range of integer or not.
+ * When setting valid cache values (in range of integer) are completed, then no more caching.(limit cache for saving resource)
  *
  * @Author : YoungHwa Lee
  *
  */
 class Fib {
 
-	// when setting valid cache values are completed, then true
+	// value to return when Fibonacci number is out of integer range
+	private static final int _RETURN_VALUE_WHEN_OUT_OF_INT = -1;
+	// when setting valid cache values(in range of integer) are completed, then true for no more caching
 	private boolean isFullyCached;
     // Cache for save previous results
     private final List<Integer> cache;
@@ -61,9 +74,9 @@ class Fib {
             // recursion for caching
             getFibNum(order - 1);
 
-            // setting valid cache values are completed, retrun
+            // setting valid cache values are completed, retrun -1
         	if(isFullyCached) {
-        		return -1;
+        		return _RETURN_VALUE_WHEN_OUT_OF_INT;
         	}
             getFibNum(order);
 
@@ -79,7 +92,7 @@ class Fib {
                 // advanced : if Fibonacci number is out of integer range then -1
                 if (cache.get(order - 2) < 0 || cache.get(order - 1) < 0 || temp > Integer.MAX_VALUE) {
                 	isFullyCached = true;
-                    cache.add(-1);
+                    cache.add(_RETURN_VALUE_WHEN_OUT_OF_INT);
 
                 } else {
 
@@ -102,8 +115,13 @@ class Fib {
         return String.format("Fibonacci #%d = %d", order, getFibNum(order));
     }
 
+	/**
+	 * method to return cache count
+	 *
+	 * @return cache count
+	 */
 	public Object getCacheSize() {
-		// TODO Auto-generated method stub
+
 		return cache.size();
 	}
 }
