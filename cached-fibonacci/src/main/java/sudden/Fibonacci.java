@@ -85,21 +85,15 @@ class Fib {
         } else {
             // when 0, 1 then set 1
             if (order <= 1) {
-
                 cache.add(1);
-
             } else {
-
                 long temp = Long.sum(cache.get(order - 2), cache.get(order - 1));
                 // advanced: if Fibonacci number is out of integer range then -1
-                if (cache.get(order - 2) < 0 || cache.get(order - 1) < 0 || temp > Integer.MAX_VALUE) {
+                if (temp > Integer.MAX_VALUE) {
                     isFullyCached = true;
                     cache.add(_RETURN_VALUE_WHEN_OUT_OF_INT);
-
                 } else {
-
                     cache.add((int) temp);
-
                 }
             }
         }

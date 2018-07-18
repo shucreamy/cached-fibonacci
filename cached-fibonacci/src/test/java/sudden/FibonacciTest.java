@@ -127,4 +127,8 @@ public class FibonacciTest {
         assertEquals(47, fib.getCacheSize());
     }
 
+    @Test
+    public void testMani() {
+        Fibonacci.main(null);
+    }
 }
