@@ -40,7 +40,7 @@ public class Fibonacci {
  *
  * <p>
  * I remember that the return type of fib() method of sample Fib class which i saw at interview is int.
- * So I needed to control the return value considering whether is out of range of integer or not.
+ * So I needed to control the return value considering whether it is out of integer range or not.
  * When setting valid cache values (in range of integer) are completed, then no more caching.(limit cache for saving resource)
  *
  * @Author : YoungHwa Lee
