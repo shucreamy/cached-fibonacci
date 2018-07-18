@@ -17,8 +17,8 @@ public class Fibonacci {
         System.out.println(instance.getLogWhen(6));
         System.out.println(instance.getLogWhen(7));
         System.out.println(instance.getLogWhen(8));
-        System.out.println(instance.getLogWhen(9));
-        System.out.println(instance.getLogWhen(10));
+//        System.out.println(instance.getLogWhen(9));
+//        System.out.println(instance.getLogWhen(10));
         System.out.println(instance.getLogWhen(44));
         System.out.println(instance.getLogWhen(45));
         System.out.println(instance.getLogWhen(46));
@@ -26,6 +26,13 @@ public class Fibonacci {
 
     }
 }
+
+/**
+ * Fibonacci with cache
+ *
+ * @Author : YoungHwa Lee
+ *
+ */
 class Fib {
 
     // Cache for save previous results
@@ -35,6 +42,13 @@ class Fib {
         this.cache = new ArrayList<Integer>();
     }
 
+    /**
+     * method to return cached Fibonacci number for specific order
+     *
+     * @param order
+     *            specific order
+     * @return Fibonacci number(if number is over Integer range then -1)
+     */
     public int getFibNum(int order) {
 
         // no cached values to refer
@@ -68,6 +82,12 @@ class Fib {
         return cache.get(order);
     }
 
+    /**
+     * print log with returned Fibonacci number when specific order given
+     *
+     * @param order Fibonacci order
+     * @return log string
+     */
     public String getLogWhen(int order) {
         return String.format("Fibonacci #%d = %d", order, getFibNum(order));
     }
