@@ -83,13 +83,13 @@ public class FibonacciTest {
 		assertEquals(1836311903, fib.getFibNum(45));
 	}
 
-	// when Fibonacci number is out of integer range then -1
+	// if Fibonacci number is out of integer range then -1
 	@Test
 	public void testGetFibNumWhenOrderIs_46() {
 		assertEquals(-1, fib.getFibNum(46));
 	}
 
-	// when Fibonacci number is out of integer range then -1
+	// if Fibonacci number is out of integer range then -1
 	@Test
 	public void testGetFibNumWhenOrderIs_999() {
 		assertEquals(-1, fib.getFibNum(999));
