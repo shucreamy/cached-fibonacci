@@ -29,6 +29,9 @@ public class Fibonacci {
         System.out.println(instance.getLogWhen(45));
         System.out.println(instance.getLogWhen(46));
         System.out.println(instance.getLogWhen(47));
+        System.out.println(instance.getLogWhen(48));
+        System.out.println(instance.getLogWhen(49));
+        System.out.println(instance.getLogWhen(50));
         System.out.println(instance.getLogWhen(999));
         System.out.println(instance.getLogWhen(1010));
 
@@ -89,7 +92,7 @@ class Fib {
             } else {
                 long temp = Long.sum(cache.get(order - 2), cache.get(order - 1));
                 // advanced: if Fibonacci number is out of integer range then -1
-                if (temp > Integer.MAX_VALUE) {
+                if (cache.get(order - 1) < 0 || temp > Integer.MAX_VALUE) {
                     isFullyCached = true;
                     cache.add(_RETURN_VALUE_WHEN_OUT_OF_INT);
                 } else {
