@@ -39,24 +39,26 @@ public class Fibonacci {
  * Fibonacci using cache
  *
  * <p>
- * I remember that the return type of fib() method of sample Fib class which i saw at interview is int.
+ * I remember that the return type of fib() method of sample Fib class which I saw at interview is int.
  * So I needed to control the return value considering whether it is out of integer range or not.
- * When setting valid cache values (in range of integer) are completed, then no more caching.(limit cache for saving resource)
+ * When setting valid cache values(in range of integer) are completed, then no more caching.(limit cache for
+ * saving resource)
  *
  * @Author : YoungHwa Lee
  *
  */
 class Fib {
 
-	// value to return when Fibonacci number is out of integer range
-	private static final int _RETURN_VALUE_WHEN_OUT_OF_INT = -1;
-	// when setting valid cache values(in range of integer) are completed, then true for no more caching
-	private boolean isFullyCached;
+    // value to return when Fibonacci number is out of integer range
+    private static final int _RETURN_VALUE_WHEN_OUT_OF_INT = -1;
+    // when setting valid cache values(in range of integer) are completed
+    // then true for no more caching
+    private boolean isFullyCached;
     // Cache for save previous results
     private final List<Integer> cache;
 
     Fib() {
-    	this.isFullyCached = false;
+        this.isFullyCached = false;
         this.cache = new ArrayList<Integer>();
     }
 
@@ -75,9 +77,9 @@ class Fib {
             getFibNum(order - 1);
 
             // setting valid cache values are completed, retrun -1
-        	if(isFullyCached) {
-        		return _RETURN_VALUE_WHEN_OUT_OF_INT;
-        	}
+            if (isFullyCached) {
+                return _RETURN_VALUE_WHEN_OUT_OF_INT;
+            }
             getFibNum(order);
 
         } else {
@@ -89,9 +91,9 @@ class Fib {
             } else {
 
                 long temp = Long.sum(cache.get(order - 2), cache.get(order - 1));
-                // advanced : if Fibonacci number is out of integer range then -1
+                // advanced: if Fibonacci number is out of integer range then -1
                 if (cache.get(order - 2) < 0 || cache.get(order - 1) < 0 || temp > Integer.MAX_VALUE) {
-                	isFullyCached = true;
+                    isFullyCached = true;
                     cache.add(_RETURN_VALUE_WHEN_OUT_OF_INT);
 
                 } else {
@@ -108,20 +110,21 @@ class Fib {
     /**
      * print log with returned Fibonacci number when specific order given
      *
-     * @param order Fibonacci order
+     * @param order
+     *            Fibonacci order
      * @return log string
      */
     public String getLogWhen(int order) {
         return String.format("Fibonacci #%d = %d", order, getFibNum(order));
     }
 
-	/**
-	 * method to return cache count
-	 *
-	 * @return cache count
-	 */
-	public Object getCacheSize() {
+    /**
+     * method to return cache count
+     *
+     * @return cache count
+     */
+    public Object getCacheSize() {
 
-		return cache.size();
-	}
+        return cache.size();
+    }
 }
